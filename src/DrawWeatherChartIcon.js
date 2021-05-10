@@ -5,14 +5,16 @@ const DrawWeatherChartIcon = (props) => {
     <div
       style={{
         display: "flex",
-        flexWrap: "wrap",
         alignItems: "center",
-        justifyContent: "space-evenly",
+        // justifyContent: "space-evenly",
+        flexWrap: "wrap",
+        padding: "1rem",
+        color: "black",
       }}
     >
-      {props?.weather.length
+      {props?.weather?.length
         ? props?.weather?.map((w, i) => (
-            <div key={i + Math.random()} className="card m-2">
+            <div key={i + Math.random()} className="m-1 bg-light p-1 border">
               <div>
                 <img
                   src={`http://openweathermap.org/img/w/${w.y.icon}.png`}

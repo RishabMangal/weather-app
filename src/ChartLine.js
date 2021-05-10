@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 const ChartLine = (props) => {
   const [labels, setLabels] = useState([]);
   const [values, setValues] = useState([]);
+  const [gT, setGT] = useState("Line");
 
   useEffect(() => {
     let labels = [];
@@ -55,8 +56,46 @@ const ChartLine = (props) => {
   };
   return (
     <div>
-      <Line data={data} options={options}></Line>
-      {/* <Bar   data={data} options={options}></Bar> */}
+      <div
+        className="text-light p-2"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div className="mx-4">
+          <input
+            type="radio"
+            onChange={(e) => setGT(e.target.value)}
+            value="Line"
+            name="graphType"
+            id="Line"
+            className=" mx-2"
+          ></input>
+          <label htmlFor="Line" className="lead">
+            Line
+          </label>
+        </div>
+        <div className="mx-4">
+          <input
+            type="radio"
+            onChange={(e) => setGT(e.target.value)}
+            value="Bar"
+            name="graphType"
+            id="Bar"
+            className=" mx-2"
+          ></input>
+          <label htmlFor="Bar" className="lead">
+            Bar
+          </label>
+        </div>
+      </div>
+      {gT === "Line" ? (
+        <Line data={data} options={options}></Line>
+      ) : (
+        <Bar data={data} options={options}></Bar>
+      )}
     </div>
   );
 };

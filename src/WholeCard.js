@@ -66,12 +66,6 @@ const WholeCard = (props) => {
       console.table(dataP);
       setGraphData(dataP);
       setWeatherChartData(weather);
-
-      // let obj = { labels: [], data: [] };
-      // let labels = [];
-      // temp.forEach((temp, i) => {
-      //     labels.push(temp.x);
-      // })
     };
     cookData();
   }, [props.hourly]);
@@ -91,34 +85,61 @@ const WholeCard = (props) => {
   };
 
   return (
-    <div className="card">
+    <div className="">
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
+          padding: "2rem",
         }}
       >
-        <div className="lead ">{props.timezone} </div>
+        <div
+          className="lead "
+          style={{ fontSize: "2rem", fontWeight: "bold", letterSpacing: "3px" }}
+        >
+          {props.timezone}{" "}
+        </div>
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "center",
             flexDirection: "column",
-            textAlign: "left",
+            textAlign: "justify",
           }}
         >
-          <div>Latitude : {props.lat}</div>
-          <div>Longitude : {props.lon}</div>
+          <div className="inline" style={{ justifyContent: "space-around" }}>
+            <div className="text-info lead" style={{ width: "30px" }}>
+              Latitude
+            </div>
+            :<div className="text-success">{props.lat}</div>
+          </div>
+          <div className="inline" style={{ justifyContent: "space-around" }}>
+            <div className="text-info lead" style={{ width: "30px" }}>
+              Longitude
+            </div>
+            :<div className="text-success">{props.lon}</div>
+          </div>
         </div>
       </div>
-      <div className="card">
+      <div className="">
         <CurrentCard {...props.current}></CurrentCard>
       </div>
+      <div className="display-4 m-3 p-4 border">Next Week Prediction</div>
+
+      <div className="row mx-0">
+        {props.daily.map((hwe, i) => (
+          <div key={i + Math.random} className="col-xl-3 my-4">
+            <CurrentCard {...hwe}></CurrentCard>
+          </div>
+        ))}
+      </div>
+      <div className="display-4 m-3 p-4 border">Hourly Representation</div>
+
       <div className="row mx-0">
         {props.hourly.map((hwe, i) => (
-          <div key={i + Math.random} className="col-sm-2">
+          <div key={i + Math.random} className="col-md-3 my-4">
             <CurrentCard {...hwe}></CurrentCard>
           </div>
         ))}
@@ -131,13 +152,18 @@ const WholeCard = (props) => {
           </div>
         ))}
       </div> */}
+      <div className="display-4 m-3 p-4 border">Graphical Representation</div>
       <div className="row mx-0">
         {Object.keys(graphData).map((gKey, i) => (
-          <div key={i + Math.random} className="col-sm-12">
+          <div
+            key={i + Math.random}
+            className="col-sm-12 m-1 my-4 p-4 border-bottom"
+          >
             <ChartLine data={graphData[gKey]} keyName={dict[gKey]}></ChartLine>
           </div>
         ))}
       </div>
+      <div className="display-4 m-3 p-4 border">Overview Representation</div>
       <div>
         <DrawWeatherChartIcon weather={weatherChartData}></DrawWeatherChartIcon>
       </div>
