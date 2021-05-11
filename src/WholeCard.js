@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import ChartLine from "./ChartLine";
 import CurrentCard from "./CurrentCard";
 import DrawWeatherChartIcon from "./DrawWeatherChartIcon";
+import hrs24 from "./assests/24-hours.png";
+import graph from "./assests/graph.png";
+import week from "./assests/week.png";
 // import DrawLine from "./DrawLine";
 
 const WholeCard = (props) => {
@@ -126,7 +129,29 @@ const WholeCard = (props) => {
       <div className="">
         <CurrentCard {...props.current}></CurrentCard>
       </div>
-      <div className="display-4 m-3 p-4 border">Next Week Prediction</div>
+
+      <div
+        className="display-4 m-3 p-3 border"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // backgroundColor: "#273B3C",
+        }}
+      >
+        <div
+          style={{
+            width: "100px",
+            // height: "100px",
+            margin: "0 2rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <img style={{ width: "100%" }} src={week} alt="sunny"></img>{" "}
+        </div>
+        <div>Next Week Prediction</div>
+      </div>
 
       <div className="row mx-0">
         {props.daily.map((hwe, i) => (
@@ -135,7 +160,29 @@ const WholeCard = (props) => {
           </div>
         ))}
       </div>
-      <div className="display-4 m-3 p-4 border">Hourly Representation</div>
+
+      <div
+        className="display-4 m-3 p-3 border"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // backgroundColor: "#273B3C",
+        }}
+      >
+        <div
+          style={{
+            width: "100px",
+            // height: "100px",
+            margin: "0 2rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <img style={{ width: "100%" }} src={hrs24} alt="sunny"></img>{" "}
+        </div>
+        <div>Hourly Representation</div>
+      </div>
 
       <div className="row mx-0">
         {props.hourly.map((hwe, i) => (
@@ -152,7 +199,29 @@ const WholeCard = (props) => {
           </div>
         ))}
       </div> */}
-      <div className="display-4 m-3 p-4 border">Graphical Representation</div>
+      <div
+        className="display-4 m-3 p-3 border"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // backgroundColor: "#273B3C",
+        }}
+      >
+        <div
+          style={{
+            width: "100px",
+            // height: "100px",
+            margin: "0 2rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <img style={{ width: "100%" }} src={graph} alt="sunny"></img>{" "}
+        </div>
+        <div>Graphical Representation</div>
+      </div>
+
       <div className="row mx-0">
         {Object.keys(graphData).map((gKey, i) => (
           <div
