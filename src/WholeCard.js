@@ -154,7 +154,7 @@ const WholeCard = (props) => {
       </div>
 
       <div className="row mx-0">
-        {props.daily.map((hwe, i) => (
+        {props?.daily?.map((hwe, i) => (
           <div key={i + Math.random} className="col-xl-3 my-4">
             <CurrentCard {...hwe}></CurrentCard>
           </div>
@@ -185,7 +185,7 @@ const WholeCard = (props) => {
       </div>
 
       <div className="row mx-0">
-        {props.hourly.map((hwe, i) => (
+        {props?.hourly?.map((hwe, i) => (
           <div key={i + Math.random} className="col-md-3 my-4">
             <CurrentCard {...hwe}></CurrentCard>
           </div>
@@ -223,7 +223,7 @@ const WholeCard = (props) => {
       </div>
 
       <div className="row mx-0">
-        {Object.keys(graphData).map((gKey, i) => (
+        {Object.keys(graphData)?.map((gKey, i) => (
           <div
             key={i + Math.random}
             className="col-sm-12 m-1 my-4 p-4 border-bottom"
