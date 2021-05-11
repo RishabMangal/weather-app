@@ -14,7 +14,10 @@ const DrawWeatherChartIcon = (props) => {
     >
       {props?.weather?.length
         ? props?.weather?.map((w, i) => (
-            <div key={i + Math.random()} className="m-1 bg-light p-1 border">
+            <div
+              key={i + Math.random()}
+              className="m-1 bg-secondary text-light p-1 "
+            >
               <div>
                 <img
                   src={`http://openweathermap.org/img/w/${w.y.icon}.png`}

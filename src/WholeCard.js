@@ -5,6 +5,7 @@ import DrawWeatherChartIcon from "./DrawWeatherChartIcon";
 import hrs24 from "./assests/24-hours.png";
 import graph from "./assests/graph.png";
 import week from "./assests/week.png";
+import dtn from "./assests/dtn.png";
 // import DrawLine from "./DrawLine";
 
 const WholeCard = (props) => {
@@ -150,7 +151,7 @@ const WholeCard = (props) => {
         >
           <img style={{ width: "100%" }} src={week} alt="sunny"></img>{" "}
         </div>
-        <div>Next Week Prediction</div>
+        <div> Week's Prediction</div>
       </div>
 
       <div className="row mx-0">
@@ -232,7 +233,28 @@ const WholeCard = (props) => {
           </div>
         ))}
       </div>
-      <div className="display-4 m-3 p-4 border">Overview Representation</div>
+      <div
+        className="display-4 m-3 p-3 border"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // backgroundColor: "#273B3C",
+        }}
+      >
+        <div
+          style={{
+            width: "100px",
+            // height: "100px",
+            margin: "0 2rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <img style={{ width: "100%" }} src={dtn} alt="day-to-night"></img>{" "}
+        </div>
+        <div>Today's Weather Timeline</div>
+      </div>
       <div>
         <DrawWeatherChartIcon weather={weatherChartData}></DrawWeatherChartIcon>
       </div>

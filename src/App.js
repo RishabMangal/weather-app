@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Geo></Geo>
-      <Home></Home>
+      {localStorage.getItem("weather") ? <Home></Home> : "Loading..."}
     </div>
   );
 }
