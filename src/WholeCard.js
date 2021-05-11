@@ -41,17 +41,17 @@ const WholeCard = (props) => {
       props.hourly.forEach((hwe, i) => {
         let hrs = getTime(new Date(hwe.dt * 1000));
         time.push({ x: hrs, y: i });
-        temp.push({ x: hrs, y: hwe.temp });
-        fl.push({ x: hrs, y: hwe.feels_like });
-        pressure.push({ x: hrs, y: hwe.pressure });
-        humidity.push({ x: hrs, y: hwe.humidity });
-        dewP.push({ x: hrs, y: hwe.dew_point });
-        uvi.push({ x: hrs, y: hwe.uvi });
-        clouds.push({ x: hrs, y: hwe.clouds });
-        visibility.push({ x: hrs, y: hwe.visibility });
-        wind_speed.push({ x: hrs, y: hwe.wind_speed });
-        wind_deg.push({ x: hrs, y: hwe.wind_deg });
-        weather.push({ x: hrs, y: hwe.weather[0] });
+        temp.push({ x: hrs, y: hwe?.temp });
+        fl.push({ x: hrs, y: hwe?.feels_like });
+        pressure.push({ x: hrs, y: hwe?.pressure });
+        humidity.push({ x: hrs, y: hwe?.humidity });
+        dewP.push({ x: hrs, y: hwe?.dew_point });
+        uvi.push({ x: hrs, y: hwe?.uvi });
+        clouds.push({ x: hrs, y: hwe?.clouds });
+        visibility.push({ x: hrs, y: hwe?.visibility });
+        wind_speed.push({ x: hrs, y: hwe?.wind_speed });
+        wind_deg.push({ x: hrs, y: hwe?.wind_deg });
+        weather.push({ x: hrs, y: hwe?.weather[0] });
       });
       let dataP = {
         // time,

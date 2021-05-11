@@ -53,7 +53,9 @@ const CurrentCard = (props) => {
   return (
     <div className="mx-0 main-card-wrapper">
       <div className="dummy"></div>
-      <div className={`icon ${props.weather[0].description.replace(" ", "_")}`}>
+      <div
+        className={`icon ${props?.weather[0]?.description.replace(" ", "_")}`}
+      >
         {props?.weather?.map((we, i) => (
           <WeatherCard key={we.id} {...we}></WeatherCard>
         ))}

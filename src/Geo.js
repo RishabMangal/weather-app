@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Geolocation from "react-geolocation";
+import Home from "./Home";
+import Welcome from "./Welcome";
 const Geo = () => {
   const [loader, setLoader] = useState(false);
+  const [flag, setFlag] = useState(false);
   const [cords, setCords] = useState({ lat: "", lon: "" });
 
   useEffect(() => {
@@ -15,6 +18,7 @@ const Geo = () => {
           setLoader(false);
           console.log("Res: ", res);
           localStorage.setItem("weather", JSON.stringify(res));
+          setFlag(true);
         })
         .catch((err) => {
           setLoader(false);
@@ -25,28 +29,30 @@ const Geo = () => {
   }, [cords.lat, cords.lon]);
 
   return (
-    <Geolocation
-      render={({
-        fetchingPosition,
-        position: { coords: { latitude, longitude } = {} } = {},
-        error,
-        getCurrentPosition,
-      }) => (
-        <div>
-          {/* <button onClick={getCurrentPosition}>Get Position</button> */}
-          {error && <div>{error.message}</div>}
-          {loader ? "Loading" : null}
-        </div>
-      )}
-      onSuccess={(p) => {
-        // console.log("P: ", JSON.stringify(p));
-        // console.log("P: ", p);
-        setCords({
-          lat: p.coords.latitude,
-          lon: p.coords.longitude,
-        });
-      }}
-    />
+    <div>
+      <Geolocation
+        render={({
+          fetchingPosition,
+          position: { coords: { latitude, longitude } = {} } = {},
+          error,
+          getCurrentPosition,
+        }) => (
+          <div>
+            {/* <button onClick={getCurrentPosition}>Get Position</button> */}
+            {error && <div>{error.message}</div>}
+            {loader ? <Welcome></Welcome> : flag ? <Home></Home> : null}
+          </div>
+        )}
+        onSuccess={(p) => {
+          // console.log("P: ", JSON.stringify(p));
+          // console.log("P: ", p);
+          setCords({
+            lat: p.coords.latitude,
+            lon: p.coords.longitude,
+          });
+        }}
+      />
+    </div>
   );
 };
 
